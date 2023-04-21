@@ -75,13 +75,13 @@ signals:
           signal: fix
         update: 'fix > 1'
 data:
-  - name: node-data
-    url: /data/miserables.json
+  - name: nodes
+    url: https://github.com/ArthurSrz/dataproduct-framework-foundations/blob/main/data/miserables.json
     format:
       type: json
       property: nodes
-  - name: link-data
-    url: /data/miserables.json
+  - name: links
+    url: https://github.com/ArthurSrz/dataproduct-framework-foundations/blob/main/data/miserables.json
     format:
       type: json
       property: links
