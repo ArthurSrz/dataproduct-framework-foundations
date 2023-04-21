@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="data: data/molecule_reference.csv">
+<meta name="description" content="None">
 <meta name="keywords" content="hello">
 <link rel="icon" href="None">
 <title>Global Title</title>
@@ -1223,6 +1223,7 @@ body:not(.with-readability) #livemark-right::-webkit-scrollbar {
 }
 
 </style>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
 <style>
 
 #livemark-notes {
@@ -1585,18 +1586,83 @@ body:not(.with-readability) #livemark-right::-webkit-scrollbar {
 <div id="livemark-main">
 <div id="livemark-notes">
       <a href="https://github.com/ArthurSrz/dataproduct-framework-foundations/edit/main/index.md" target="_blank">Edit page </a> in <a href="https://livemark.frictionlessdata.io" target="_blank"> Livemark </a><br>
-    (2023-04-21 14:00)
+    (2023-04-21 14:02)
 </div>
 
 <h1>Hello</h1>
-<p>data: data/molecule_reference.csv
-width: 600
-order:</p>
-<ul>
-<li>[3, 'desc']
-columns:</li>
-<li>data: atoms</li>
-</ul>
+<div><div class="livemark-table" style="overflow-x: auto">
+  <div style="width: 600px">
+    <table id="livemark-table-1">
+      <thead>
+        <tr>
+                    <th>atoms</th>
+                  </tr>
+      </thead>
+      <tbody>
+                <tr>
+                    <td>Metabase</td>
+                  </tr>
+                <tr>
+                    <td>London Data Store</td>
+                  </tr>
+                <tr>
+                    <td>D-Lyne</td>
+                  </tr>
+                <tr>
+                    <td>Kaggle</td>
+                  </tr>
+                <tr>
+                    <td>Workbench data</td>
+                  </tr>
+                <tr>
+                    <td>Kyso</td>
+                  </tr>
+                <tr>
+                    <td>Data.gouv.fr</td>
+                  </tr>
+                <tr>
+                    <td>Data Galaxy</td>
+                  </tr>
+                <tr>
+                    <td>Dawex</td>
+                  </tr>
+                <tr>
+                    <td>Data.World</td>
+                  </tr>
+                <tr>
+                    <td>Datarade</td>
+                  </tr>
+                <tr>
+                    <td>AWS</td>
+                  </tr>
+                <tr>
+                    <td>Google</td>
+                  </tr>
+                <tr>
+                    <td>Open Data Archives</td>
+                  </tr>
+                <tr>
+                    <td>Datagora</td>
+                  </tr>
+                <tr>
+                    <td>Dataiku</td>
+                  </tr>
+              </tbody>
+      <tfoot>
+        <tr>
+                    <th>atoms</th>
+                  </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  $('#livemark-table-1').DataTable(JSON.parse('{"order": [[3, "desc"]], "columns": [{"data": "atoms"}], "columnDefs": [{"targets": "_all", "orderSequence": ["desc", "asc"]}]}'))
+})
+</script>
+
+</div>
 </div>
 <div id="livemark-right">
 
@@ -1607,7 +1673,7 @@ columns:</li>
 
 <div id="livemark-about">
   <div>
-    data: data/molecule_reference.csv
+    None
   </div>
 </div>
 
@@ -1669,6 +1735,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 </script>
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
 <script>
 
 document.addEventListener("DOMContentLoaded", function () {
