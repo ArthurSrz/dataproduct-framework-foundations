@@ -7,4 +7,5 @@ order:
   - [3, 'desc']
 columns:
   - data: atoms
+  - data: __
 ```
