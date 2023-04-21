@@ -76,12 +76,12 @@ signals:
         update: 'fix > 1'
 data:
   - name: nodes
-    url: https://github.com/ArthurSrz/dataproduct-framework-foundations/blob/main/data/miserables.json
+    url: https://raw.githubusercontent.com/ArthurSrz/dataproduct-framework-foundations/main/data/miserables.json
     format:
       type: json
       property: nodes
   - name: links
-    url: https://github.com/ArthurSrz/dataproduct-framework-foundations/blob/main/data/miserables.json
+    url: https://raw.githubusercontent.com/ArthurSrz/dataproduct-framework-foundations/main/data/miserables.json
     format:
       type: json
       property: links
@@ -96,7 +96,7 @@ marks:
     type: symbol
     zindex: 1
     from:
-      data: node-data
+      data: nodes
     on:
       - trigger: fix
         modify: node
