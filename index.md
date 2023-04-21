@@ -75,12 +75,12 @@ signals:
           signal: fix
         update: 'fix > 1'
 data:
-  - name: nodes
+  - name: node-data
     url: /data/miserables.json
     format:
       type: json
       property: nodes
-  - name: links
+  - name: link-data
     url: /data/miserables.json
     format:
       type: json
