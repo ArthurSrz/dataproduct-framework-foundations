@@ -1586,7 +1586,7 @@ body:not(.with-readability) #livemark-right::-webkit-scrollbar {
 <div id="livemark-main">
 <div id="livemark-notes">
       <a href="https://github.com/ArthurSrz/dataproduct-framework-foundations/edit/main/index.md" target="_blank">Edit page </a> in <a href="https://livemark.frictionlessdata.io" target="_blank"> Livemark </a><br>
-    (2023-04-23 19:41)
+    (2023-04-23 19:08)
 </div>
 
 <h1>Hello</h1>
@@ -1687,18 +1687,37 @@ document.addEventListener("DOMContentLoaded", function(){
 </div>
 <script>
 document.addEventListener("DOMContentLoaded", function(){
-  vegaEmbed('#livemark-chart-1', JSON.parse('{"data": {"url": "data/cars.csv"}, "mark": "circle", "selection": {"brush": {"type": "interval"}}, "encoding": {"x": {"type": "quantitative", "field": "kmpl", "scale": {"domain": [12, 25]}}, "y": {"type": "quantitative", "field": "price", "scale": {"domain": [100, 900]}}, "color": {"condition": {"selection": "brush", "field": "type", "type": "nominal"}, "value": "grey"}, "size": {"type": "quantitative", "field": "bhp"}}, "width": 500, "height": 300}'))
+  vegaEmbed('#livemark-chart-1', JSON.parse('{"title": "My Livemark Visualization", "data": {"url": "data/data.json", "format": {"type": "json", "property": {"nodes": "nodes", "links": "links"}}}, "mark": "line", "encoding": {"x": {"field": "id", "type": "quantitative"}, "y": {"field": "name", "type": "nominal"}}}'))
 })
 </script>
 
-</div><p>#Try </p>
-<div><div class="livemark-chart" style="overflow-x: auto">
+</div><div><div class="livemark-chart" style="overflow-x: auto">
   <div id="livemark-chart-2">
   </div>
 </div>
 <script>
 document.addEventListener("DOMContentLoaded", function(){
-  vegaEmbed('#livemark-chart-2', JSON.parse('{"data": {"url": "data/miserables.json", "format": {"type": "json", "property": "links"}}, "mark": "circle", "encoding": {"x": {"field": "x", "type": "quantitative", "scale": {"zero": false}}, "y": {"field": "y", "type": "quantitative", "scale": {"zero": false}}, "size": {"value": 200}, "color": {"value": "steelblue"}}, "selection": {"highlight": {"type": "single"}, "nodes": {"type": "multi", "true": "mouseover", "nearest": true, "empty": "none"}, "clear": {"type": "multi", "true": "mouseout", "nearest": true, "empty": "none"}}, "view": {"stroke": null}, "layout": {"force": {"iterations": 300, "restart": true, "static": false, "forces": {"center": true, "collide": {"radius": 5}, "link": {"distance": 100, "strength": 1}, "charge": {"strength": -50}}}}}'))
+  vegaEmbed('#livemark-chart-2', JSON.parse('{"data": {"url": "data/cars.csv"}, "mark": "circle", "selection": {"brush": {"type": "interval"}}, "encoding": {"x": {"type": "quantitative", "field": "kmpl", "scale": {"domain": [12, 25]}}, "y": {"type": "quantitative", "field": "price", "scale": {"domain": [100, 900]}}, "color": {"condition": {"selection": "brush", "field": "type", "type": "nominal"}, "value": "grey"}, "size": {"type": "quantitative", "field": "bhp"}}, "width": 500, "height": 300}'))
+})
+</script>
+
+</div><div><div class="livemark-chart" style="overflow-x: auto">
+  <div id="livemark-chart-3">
+  </div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  vegaEmbed('#livemark-chart-3', JSON.parse('{"title": "My Livemark Visualization", "data": {"url": "data/data.json", "format": {"type": "json", "property": {"nodes": "nodes", "links": "links"}}}, "mark": "line", "encoding": {"x": {"field": "id", "type": "quantitative"}, "y": {"field": "name", "type": "nominal"}}}'))
+})
+</script>
+
+</div><div><div class="livemark-chart" style="overflow-x: auto">
+  <div id="livemark-chart-4">
+  </div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  vegaEmbed('#livemark-chart-4', JSON.parse('{"type": "vega-lite", "spec": {"data": {"url": "https://vega.github.io/vega-lite/data/movies.json"}, "mark": "bar", "encoding": {"y": {"field": "Worldwide_Gross", "type": "quantitative", "axis": {"title": "Worldwide Gross"}}, "x": {"aggregate": "count", "type": "quantitative", "axis": {"title": "Number of Movies"}}, "color": {"field": "Major_Genre", "type": "nominal"}}}}'))
 })
 </script>
 

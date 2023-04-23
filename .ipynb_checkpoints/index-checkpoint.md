@@ -10,18 +10,6 @@ columns:
 
 # My Livemark Visualization
 
-```yaml chart
-title: My Livemark Visualization
-data:
-  url: data/data.json
-  format:
-    type: json
-    property: { nodes: "nodes", links: "links" }
-mark: "line"
-encoding:
-  x: { field: "id", type: "quantitative" }
-  y: { field: "name", type: "nominal" }
-```
 
 ```yaml chart
 data:
@@ -53,15 +41,62 @@ encoding:
 width: 500
 height: 300
 ```
+
+#Try 
 ```yaml chart
-title: My Livemark Visualization
 data:
-  url: data/data.json
+  url: data/miserables.json
   format:
     type: json
-    property: { nodes: "nodes", links: "links" }
-mark: "line"
+    property: links
+
+mark: circle
 encoding:
-  x: { field: "id", type: "quantitative" }
-  y: { field: "name", type: "nominal" }
+  x: 
+    field: x
+    type: quantitative
+    scale:
+      zero: false
+  y: 
+    field: y
+    type: quantitative
+    scale:
+      zero: false
+  size: 
+    value: 200
+  color:
+    value: steelblue
+
+selection:
+  highlight:
+    type: single
+
+  nodes:
+    type: multi
+    on: "mouseover"
+    nearest: true
+    empty: "none"
+  clear:
+    type: multi
+    on: "mouseout"
+    nearest: true
+    empty: "none"
+
+view:
+  stroke: null
+
+layout:
+  force:
+    iterations: 300
+    restart: true
+    static: false
+    forces:
+      center: true
+      collide:
+        radius: 5
+      link:
+        distance: 100
+        strength: 1
+      charge:
+        strength: -50
 ```
