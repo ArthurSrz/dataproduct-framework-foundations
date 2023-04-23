@@ -1586,7 +1586,7 @@ body:not(.with-readability) #livemark-right::-webkit-scrollbar {
 <div id="livemark-main">
 <div id="livemark-notes">
       <a href="https://github.com/ArthurSrz/dataproduct-framework-foundations/edit/main/index.md" target="_blank">Edit page </a> in <a href="https://livemark.frictionlessdata.io" target="_blank"> Livemark </a><br>
-    (2023-04-23 18:42)
+    (2023-04-23 18:48)
 </div>
 
 <h1>Hello</h1>
@@ -1698,6 +1698,16 @@ document.addEventListener("DOMContentLoaded", function(){
 <script>
 document.addEventListener("DOMContentLoaded", function(){
   vegaEmbed('#livemark-chart-2', JSON.parse('{"data": {"url": "data/cars.csv"}, "mark": "circle", "selection": {"brush": {"type": "interval"}}, "encoding": {"x": {"type": "quantitative", "field": "kmpl", "scale": {"domain": [12, 25]}}, "y": {"type": "quantitative", "field": "price", "scale": {"domain": [100, 900]}}, "color": {"condition": {"selection": "brush", "field": "type", "type": "nominal"}, "value": "grey"}, "size": {"type": "quantitative", "field": "bhp"}}, "width": 500, "height": 300}'))
+})
+</script>
+
+</div><div><div class="livemark-chart" style="overflow-x: auto">
+  <div id="livemark-chart-3">
+  </div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  vegaEmbed('#livemark-chart-3', JSON.parse('{"title": "My Livemark Visualization", "data": {"url": "data/data.json", "format": {"type": "json", "property": {"nodes": "nodes", "links": "links"}}}, "mark": "line", "encoding": {"x": {"field": "id", "type": "quantitative"}, "y": {"field": "name", "type": "nominal"}}}'))
 })
 </script>
 

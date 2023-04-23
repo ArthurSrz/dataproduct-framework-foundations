@@ -53,3 +53,15 @@ encoding:
 width: 500
 height: 300
 ```
+```yaml chart
+title: My Livemark Visualization
+data:
+  url: data/data.json
+  format:
+    type: json
+    property: { nodes: "nodes", links: "links" }
+mark: "line"
+encoding:
+  x: { field: "id", type: "quantitative" }
+  y: { field: "name", type: "nominal" }
+```
