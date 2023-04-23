@@ -1,4 +1,4 @@
-# Hello
+# Data product framework
 
 ```yaml table
 data: data/molecule_reference.csv
@@ -13,7 +13,7 @@ columns:
 
 ```yaml chart
 data:
-  url: data/cars.csv
+  url: data/molecule_reference.csv
 mark: circle
 selection:
   brush:
@@ -42,61 +42,3 @@ width: 500
 height: 300
 ```
 
-#Try 
-```yaml chart
-data:
-  url: data/miserables.json
-  format:
-    type: json
-    property: links
-
-mark: circle
-encoding:
-  x: 
-    field: x
-    type: quantitative
-    scale:
-      zero: false
-  y: 
-    field: y
-    type: quantitative
-    scale:
-      zero: false
-  size: 
-    value: 200
-  color:
-    value: steelblue
-
-selection:
-  highlight:
-    type: single
-
-  nodes:
-    type: multi
-    on: "mouseover"
-    nearest: true
-    empty: "none"
-  clear:
-    type: multi
-    on: "mouseout"
-    nearest: true
-    empty: "none"
-
-view:
-  stroke: null
-
-layout:
-  force:
-    iterations: 300
-    restart: true
-    static: false
-    forces:
-      center: true
-      collide:
-        radius: 5
-      link:
-        distance: 100
-        strength: 1
-      charge:
-        strength: -50
-```
