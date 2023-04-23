@@ -9,7 +9,7 @@ columns:
 ```
 
 ```yaml chart
-$schema: https://vega.github.io/schema/vega/v5.json
+schema: https://vega.github.io/schema/vega/v5.json
 data:
   - name: nodes
     values:
