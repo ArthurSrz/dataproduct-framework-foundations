@@ -1,4 +1,4 @@
-# Hello
+# Data product framework
 
 ```yaml table
 data: data/molecule_reference.csv
@@ -13,7 +13,7 @@ columns:
 
 ```yaml chart
 data:
-  url: data/cars.csv
+  url: data/molecule_reference.csv
 mark: circle
 selection:
   brush:
@@ -42,61 +42,94 @@ width: 500
 height: 300
 ```
 
-#Try 
-```yaml chart
-data:
-  url: data/miserables.json
-  format:
-    type: json
-    property: links
 
-mark: circle
-encoding:
-  x: 
-    field: x
-    type: quantitative
-    scale:
-      zero: false
-  y: 
-    field: y
-    type: quantitative
-    scale:
-      zero: false
-  size: 
-    value: 200
-  color:
-    value: steelblue
+# My Interactive Vega Visualization
 
-selection:
-  highlight:
-    type: single
 
-  nodes:
-    type: multi
-    on: "mouseover"
-    nearest: true
-    empty: "none"
-  clear:
-    type: multi
-    on: "mouseout"
-    nearest: true
-    empty: "none"
-
-view:
-  stroke: null
-
-layout:
-  force:
-    iterations: 300
-    restart: true
-    static: false
-    forces:
-      center: true
-      collide:
-        radius: 5
-      link:
-        distance: 100
-        strength: 1
-      charge:
-        strength: -50
+```python
+import json
+from livemark.renderers import VegaLiteRenderer
+# Define your Vega specification here
+vega_spec = {
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "width": 400,
+  "height": 400,
+  "padding": 5,
+  "signals": [
+    {"name": "cx", "update": "width / 2"},
+    {"name": "cy", "update": "height / 2"},
+    {"name": "nodeRadius", "value": 8},
+    {"name": "nodeCharge", "value": -30},
+    {"name": "linkDistance", "value": 30},
+    {"name": "chargeStrength", "value": 0.1}
+  ],
+  "data": [
+    {
+      "name": "nodes",
+      "values": [
+        {"id": "Alice"},
+        {"id": "Bob"},
+        {"id": "Carol"},
+        {"id": "David"}
+      ]
+    },
+    {
+      "name": "links",
+      "values": [
+        {"source": "Alice", "target": "Bob"},
+        {"source": "Bob", "target": "Carol"},
+        {"source": "Carol", "target": "David"}
+      ]
+    }
+  ],
+  "marks": [
+    {
+      "type": "line",
+      "from": {"data": "links"},
+      "encode": {
+        "enter": {
+          "strokeWidth": {"value": 2},
+          "strokeOpacity": {"value": 0.5},
+          "x": {"field": "source.x"},
+          "y": {"field": "source.y"}
+        },
+        "update": {
+          "x2": {"field": "target.x"},
+          "y2": {"field": "target.y"}
+        }
+      }
+    },
+    {
+      "type": "symbol",
+      "from": {"data": "nodes"},
+      "encode": {
+        "enter": {
+          "fillOpacity": {"value": 1},
+          "strokeWidth": {"value": 2},
+          "size": {"value": 64},
+          "fill": {"value": "#000"},
+          "stroke": {"value": "#fff"},
+          "x": {"field": "x"},
+          "y": {"field": "y"}
+        }
+      },
+      "transform": [
+        {
+          "type": "force",
+          "static": False,
+          "forces": [
+            {"force": "center", "x": {"signal": "cx"}, "y": {"signal": "cy"}},
+            {"force": "collide", "radius": {"signal": "nodeRadius"}},
+            {"force": "nbody", "strength": {"signal": "nodeCharge"}},
+            {"force": "link", "links": "links", "distance": {"signal": "linkDistance"}},
+            {"force": "charge", "strength": {"signal": "chargeStrength"}}
+          ]
+        }
+      ]
+    }
+  ]
+}
+vl_renderer = VegaLiteRenderer(spec=vega_spec)
+vl_renderer.render()
+print(vl_renderer.html)
 ```
