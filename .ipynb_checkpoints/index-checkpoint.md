@@ -8,40 +8,48 @@ columns:
   - data: __
 ```
 
-```yaml chart
-schema: https://vega.github.io/schema/vega/v5.json
-data:
-  - name: nodes
-    values:
-      - {id: "A", group: "1"}
-      - {id: "B", group: "2"}
-      - {id: "C", group: "1"}
-  - name: links
-    values:
-      - {source: "A", target: "B"}
-      - {source: "B", target: "C"}    
-scales:
-  - name: color
-    type: ordinal
-    range: category10
-    domain: {data: "nodes", field: "group"}
-marks:
-  - type: line
-    from: {data: "links"}
-    encode:
-      enter:
-        stroke: {value: "grey"}
-      update:
-        x: {scale: "x", field: "source"}
-        y: {scale: "y", field: "target"}
-  - type: symbol
-    from: {data: "nodes"}
-    encode:
-      enter:
-        fill: {scale: "color", field: "group"}
-        stroke: {value: "white"}
-        size: {value: 200}
-      update:
-        x: {scale: "x", field: "id"}
-        y: {scale: "y", value: 100}
-```
+# My Livemark Visualization
+
+<div id="chart"></div>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+d3.json("data.json").then(function(data) {
+  var nodes = data.nodes;
+  var links = data.links;
+
+  var width = 600;
+  var height = 400;
+
+  var svg = d3.select("#chart").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+  var simulation = d3.forceSimulation(nodes)
+    .force("link", d3.forceLink(links).id(function(d) { return d.id; }))
+    .force("charge", d3.forceManyBody())
+    .force("center", d3.forceCenter(width / 2, height / 2));
+
+  var link = svg.selectAll("line")
+    .data(links)
+    .enter().append("line")
+    .attr("stroke", "#999")
+    .attr("stroke-width", "2");
+
+  var node = svg.selectAll("circle")
+    .data(nodes)
+    .enter().append("circle")
+    .attr("r", 10)
+    .attr("fill", "#333");
+
+  simulation.on("tick", function() {
+    link.attr("x1", function(d) { return d.source.x; })
+      .attr("y1", function(d) { return d.source.y; })
+      .attr("x2", function(d) { return d.target.x; })
+      .attr("y2", function(d) { return d.target.y; });
+
+    node.attr("cx", function(d) { return d.x; })
+      .attr("cy", function(d) { return d.y; });
+  });
+});
+</script>
