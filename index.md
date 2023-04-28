@@ -8,73 +8,38 @@ columns:
   - data: __
 ```
 
+
+
 # My Livemark Visualization
 
+
 ```yaml chart
+description: A Unit Chart with Small Multiples
 data:
   url: data/molecule_reference.csv
-mark: circle
-selection:
-  brush:
-    type: interval
+width: 300
+mark: rect
+transform:
+  - calculate: ceil(datum.subid/ 6)
+    as: Y
+  - calculate: datum.subid - (datum.Y - 1) * 6
+    as: X
 encoding:
   x:
-    type: quantitative
-    field: kmpl
-    scale:
-     domain: [12,25]
+    field: X
+    type: ordinal
+    axis: null
   y:
-    type: quantitative
-    field: price
-    scale:
-     domain: [100,900]
+    field: Y
+    type: ordinal
+    axis: null
   color:
-    condition:
-      selection: brush
-      field: type
-      type: nominal
-    value: grey
-  size:
-    type: quantitative
-    field: bhp
-width: 500
-height: 300
-```
-
-
-# Visualize Data Molecule using a network graph 
-
-```yaml chart
-vegalite:
-data:
-  values: [{'source': 'A', 'target': 'B'},
-           {'source': 'B', 'target': 'C'},
-           {'source': 'C', 'target': 'D'},
-           {'source': 'D', 'target': 'E'},
-           {'source': 'E', 'target': 'F'},
-           {'source': 'F', 'target': 'A'}]
-mark: line
-encoding:
-  x: {field: "x", type: "quantitative", scale: {zero: false}}
-  y: {field: "y", type: "quantitative", scale: {zero: false}}
-  detail: {field: "source"}
-  detail: {field: "target"}
-width: 400
-height: 400
-autosize: {type: "fit", contains: "padding"}
-projections:
-  - name: "force"
-    type: "force"
-    iterations: 300
-    forces:
-      - force: "charge"
-        strength: -50
-      - force: "collide"
-        radius: 50
-      - force: "link"
-        distance: 100
-        links: "edges"
-edges:
-  color: "#ccc"
-  strokeWidth: 1.5
+    field: atoms
+    type: nominal
+  column:
+    field: __
+    type: nominal
+  tooltip:
+    field: atoms
+    type: nominal
 ```

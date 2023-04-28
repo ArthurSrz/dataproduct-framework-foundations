@@ -1586,7 +1586,7 @@ body:not(.with-readability) #livemark-right::-webkit-scrollbar {
 <div id="livemark-main">
 <div id="livemark-notes">
       <a href="https://github.com/ArthurSrz/dataproduct-framework-foundations/edit/main/index.md" target="_blank">Edit page </a> in <a href="https://livemark.frictionlessdata.io" target="_blank"> Livemark </a><br>
-    (2023-04-23 22:59)
+    (2023-04-28 16:59)
 </div>
 
 <h1>Data product framework</h1>
@@ -1687,18 +1687,7 @@ document.addEventListener("DOMContentLoaded", function(){
 </div>
 <script>
 document.addEventListener("DOMContentLoaded", function(){
-  vegaEmbed('#livemark-chart-1', JSON.parse('{"data": {"url": "data/molecule_reference.csv"}, "mark": "circle", "selection": {"brush": {"type": "interval"}}, "encoding": {"x": {"type": "quantitative", "field": "kmpl", "scale": {"domain": [12, 25]}}, "y": {"type": "quantitative", "field": "price", "scale": {"domain": [100, 900]}}, "color": {"condition": {"selection": "brush", "field": "type", "type": "nominal"}, "value": "grey"}, "size": {"type": "quantitative", "field": "bhp"}}, "width": 500, "height": 300}'))
-})
-</script>
-
-</div><h1>Visualize Data Molecule using a network graph</h1>
-<div><div class="livemark-chart" style="overflow-x: auto">
-  <div id="livemark-chart-2">
-  </div>
-</div>
-<script>
-document.addEventListener("DOMContentLoaded", function(){
-  vegaEmbed('#livemark-chart-2', JSON.parse('{"vegalite": null, "data": {"values": [{"source": "A", "target": "B"}, {"source": "B", "target": "C"}, {"source": "C", "target": "D"}, {"source": "D", "target": "E"}, {"source": "E", "target": "F"}, {"source": "F", "target": "A"}]}, "mark": "line", "encoding": {"x": {"field": "x", "type": "quantitative", "scale": {"zero": false}}, "y": {"field": "y", "type": "quantitative", "scale": {"zero": false}}, "detail": {"field": "target"}}, "width": 400, "height": 400, "autosize": {"type": "fit", "contains": "padding"}, "projections": [{"name": "force", "type": "force", "iterations": 300, "forces": [{"force": "charge", "strength": -50}, {"force": "collide", "radius": 50}, {"force": "link", "distance": 100, "links": "edges"}]}], "edges": {"color": "#ccc", "strokeWidth": 1.5}}'))
+  vegaEmbed('#livemark-chart-1', JSON.parse('{"description": "A Unit Chart with Small Multiples", "data": {"url": "data/molecule_reference.csv"}, "width": 300, "mark": "rect", "transform": [{"calculate": "ceil(datum.subid/ 6)", "as": "Y"}, {"calculate": "datum.subid - (datum.Y - 1) * 6", "as": "X"}], "encoding": {"x": {"field": "X", "type": "ordinal", "axis": null}, "y": {"field": "Y", "type": "ordinal", "axis": null}, "color": {"field": "atoms", "type": "nominal"}, "column": {"field": "__", "type": "nominal"}, "tooltip": {"field": "atoms", "type": "nominal"}}}'))
 })
 </script>
 
