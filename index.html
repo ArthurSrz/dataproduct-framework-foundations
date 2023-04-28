@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="None">
-<meta name="keywords" content="data,product,framework">
+<meta name="keywords" content="my,data,atoms">
 <link rel="icon" href="None">
 <title>Global Title</title>
 <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
@@ -1586,10 +1586,10 @@ body:not(.with-readability) #livemark-right::-webkit-scrollbar {
 <div id="livemark-main">
 <div id="livemark-notes">
       <a href="https://github.com/ArthurSrz/dataproduct-framework-foundations/edit/main/index.md" target="_blank">Edit page </a> in <a href="https://livemark.frictionlessdata.io" target="_blank"> Livemark </a><br>
-    (2023-04-28 16:59)
+    (2023-04-28 17:15)
 </div>
 
-<h1>Data product framework</h1>
+<h1>My Data Atoms</h1>
 <div><div class="livemark-table" style="overflow-x: auto">
   <div style="width: 300px">
     <table id="livemark-table-1">
@@ -1680,14 +1680,14 @@ document.addEventListener("DOMContentLoaded", function(){
 })
 </script>
 
-</div><h1>My Livemark Visualization</h1>
+</div><h1>My Data Molecule</h1>
 <div><div class="livemark-chart" style="overflow-x: auto">
   <div id="livemark-chart-1">
   </div>
 </div>
 <script>
 document.addEventListener("DOMContentLoaded", function(){
-  vegaEmbed('#livemark-chart-1', JSON.parse('{"description": "A Unit Chart with Small Multiples", "data": {"url": "data/molecule_reference.csv"}, "width": 300, "mark": "rect", "transform": [{"calculate": "ceil(datum.subid/ 6)", "as": "Y"}, {"calculate": "datum.subid - (datum.Y - 1) * 6", "as": "X"}], "encoding": {"x": {"field": "X", "type": "ordinal", "axis": null}, "y": {"field": "Y", "type": "ordinal", "axis": null}, "color": {"field": "atoms", "type": "nominal"}, "column": {"field": "__", "type": "nominal"}, "tooltip": {"field": "atoms", "type": "nominal"}}}'))
+  vegaEmbed('#livemark-chart-1', JSON.parse('{"description": "A Unit Chart with Small Multiples", "data": {"url": "data/molecule_reference.csv"}, "width": 300, "mark": "rect", "transform": [{"calculate": "ceil(datum.subid/ 6)", "as": "Y"}, {"calculate": "datum.subid - (datum.Y - 1) * 6", "as": "X"}], "encoding": {"x": {"bin": {"maxbins": 10}, "field": "X", "type": "ordinal", "axis": null}, "y": {"bin": {"maxbins": 10}, "field": "Y", "type": "ordinal", "axis": null}, "color": {"field": "atoms", "type": "nominal", "legend": null}, "column": {"field": null, "type": "nominal"}, "tooltip": {"field": "atoms", "type": "nominal"}}}'))
 })
 </script>
 

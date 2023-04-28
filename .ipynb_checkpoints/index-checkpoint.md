@@ -1,4 +1,4 @@
-# Data product framework
+# My Data Atoms
 
 ```yaml table
 data: data/molecule_reference.csv
@@ -10,7 +10,7 @@ columns:
 
 
 
-# My Livemark Visualization
+# My Data Molecule
 
 
 ```yaml chart
@@ -26,18 +26,23 @@ transform:
     as: X
 encoding:
   x:
+    bin:
+      maxbins: 10
     field: X
     type: ordinal
     axis: null
   y:
+    bin:
+      maxbins: 10
     field: Y
     type: ordinal
     axis: null
   color:
     field: atoms
     type: nominal
+    legend : null
   column:
-    field: __
+    field: null
     type: nominal
   tooltip:
     field: atoms
