@@ -1586,7 +1586,7 @@ body:not(.with-readability) #livemark-right::-webkit-scrollbar {
 <div id="livemark-main">
 <div id="livemark-notes">
       <a href="https://github.com/ArthurSrz/dataproduct-framework-foundations/edit/main/index.md" target="_blank">Edit page </a> in <a href="https://livemark.frictionlessdata.io" target="_blank"> Livemark </a><br>
-    (2023-04-23 21:46)
+    (2023-04-23 22:59)
 </div>
 
 <h1>Data product framework</h1>
@@ -1691,8 +1691,17 @@ document.addEventListener("DOMContentLoaded", function(){
 })
 </script>
 
-</div><h1>My Interactive Vega Visualization</h1>
-<div><pre><code></code></pre>
+</div><h1>Visualize Data Molecule using a network graph</h1>
+<div><div class="livemark-chart" style="overflow-x: auto">
+  <div id="livemark-chart-2">
+  </div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  vegaEmbed('#livemark-chart-2', JSON.parse('{"vegalite": null, "data": {"values": [{"source": "A", "target": "B"}, {"source": "B", "target": "C"}, {"source": "C", "target": "D"}, {"source": "D", "target": "E"}, {"source": "E", "target": "F"}, {"source": "F", "target": "A"}]}, "mark": "line", "encoding": {"x": {"field": "x", "type": "quantitative", "scale": {"zero": false}}, "y": {"field": "y", "type": "quantitative", "scale": {"zero": false}}, "detail": {"field": "target"}}, "width": 400, "height": 400, "autosize": {"type": "fit", "contains": "padding"}, "projections": [{"name": "force", "type": "force", "iterations": 300, "forces": [{"force": "charge", "strength": -50}, {"force": "collide", "radius": 50}, {"force": "link", "distance": 100, "links": "edges"}]}], "edges": {"color": "#ccc", "strokeWidth": 1.5}}'))
+})
+</script>
+
 </div>
 </div>
 <div id="livemark-right">

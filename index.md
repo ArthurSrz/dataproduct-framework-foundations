@@ -10,7 +10,6 @@ columns:
 
 # My Livemark Visualization
 
-
 ```yaml chart
 data:
   url: data/molecule_reference.csv
@@ -43,7 +42,39 @@ height: 300
 ```
 
 
-# My Interactive Vega Visualization
+# Visualize Data Molecule using a network graph 
 
-
+```yaml chart
+vegalite:
+data:
+  values: [{'source': 'A', 'target': 'B'},
+           {'source': 'B', 'target': 'C'},
+           {'source': 'C', 'target': 'D'},
+           {'source': 'D', 'target': 'E'},
+           {'source': 'E', 'target': 'F'},
+           {'source': 'F', 'target': 'A'}]
+mark: line
+encoding:
+  x: {field: "x", type: "quantitative", scale: {zero: false}}
+  y: {field: "y", type: "quantitative", scale: {zero: false}}
+  detail: {field: "source"}
+  detail: {field: "target"}
+width: 400
+height: 400
+autosize: {type: "fit", contains: "padding"}
+projections:
+  - name: "force"
+    type: "force"
+    iterations: 300
+    forces:
+      - force: "charge"
+        strength: -50
+      - force: "collide"
+        radius: 50
+      - force: "link"
+        distance: 100
+        links: "edges"
+edges:
+  color: "#ccc"
+  strokeWidth: 1.5
 ```
